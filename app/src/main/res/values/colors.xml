@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Cores da Paleta Premium -->
+    <color name="rubye_bg_claro">#F6F3ED</color>
+    <color name="rubye_sand">#D5C7B4</color> <!-- Adicionada para corrigir o erro -->
+    <color name="rubye_fonte_escura">#4A3B22</color>
+    <color name="rubye_header">#2A3F40</color>
+    <color name="rubye_gold">#C9A05C</color>
+
+    <color name="rubye_navy">#1F2B44</color>
+    <color name="rubye_light_gray">#EFEFEF</color>
+</resources>
