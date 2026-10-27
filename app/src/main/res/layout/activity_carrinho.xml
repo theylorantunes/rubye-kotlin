@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rubye_bg_claro"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_top_bar" />
+
+    <!-- Título extra para a tela de carrinho -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MEU CARRINHO"
+        android:textColor="@color/rubye_fonte_escura"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:gravity="center" />
+
+    <!-- Lista de Itens -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCarrinho"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clipToPadding="false" />
+
+    <!-- Rodapé (Total e Botão) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@drawable/bg_bottom_sheet_rounded"
+        android:elevation="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total:"
+                android:textColor="@color/rubye_fonte_escura"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$ 0,00"
+                android:textColor="@color/rubye_header"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnFinalizar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="FINALIZAR PEDIDO"
+            android:textColor="@color/rubye_gold"
+            android:backgroundTint="@color/rubye_header"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Navegação Inferior -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/rubye_header"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:menu="@menu/bottom_nav_menu" />
+
+</LinearLayout>

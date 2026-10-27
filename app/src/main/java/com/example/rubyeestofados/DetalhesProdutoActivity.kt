@@ -16,8 +16,9 @@ class DetalhesProdutoActivity : AppCompatActivity() {
         val ivFoto = findViewById<ImageView>(R.id.ivFotoDetalhe)
         val tvNome = findViewById<TextView>(R.id.tvNomeDetalhe)
         val tvPreco = findViewById<TextView>(R.id.tvPrecoDetalhe)
-        val tvVoltar = findViewById<TextView>(R.id.tvVoltar)
+        val btnVoltar = findViewById<ImageView>(R.id.btnVoltar)
         val btnComprar = findViewById<Button>(R.id.btnComprar)
+        val btnIrCarrinho = findViewById<ImageView>(R.id.btnIrCarrinho)
 
         val nome = intent.getStringExtra("NOME_PRODUTO") ?: "Produto sem nome"
         val preco = intent.getStringExtra("PRECO_PRODUTO") ?: "R$ 0,00"
@@ -27,8 +28,13 @@ class DetalhesProdutoActivity : AppCompatActivity() {
         tvPreco.text = preco
         ivFoto.setImageResource(imagemResId)
 
-        tvVoltar.setOnClickListener {
+        btnVoltar.setOnClickListener {
             finish()
+        }
+
+        btnIrCarrinho.setOnClickListener {
+            val intent = android.content.Intent(this, CarrinhoActivity::class.java)
+            startActivity(intent)
         }
 
         btnComprar.setOnClickListener {

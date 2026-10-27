@@ -6,62 +6,26 @@
     android:background="@color/rubye_bg_claro"
     android:orientation="vertical">
 
-    <!-- Cabeçalho -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/rubye_header"
-        android:orientation="vertical"
-        android:paddingTop="40dp"
-        android:paddingBottom="24dp"
-        android:gravity="center">
+    <!-- Topo Minimalista -->
+    <include layout="@layout/layout_top_bar" />
 
-        <ImageView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo_rubye"
-            android:adjustViewBounds="true"
-            app:tint="@color/rubye_gold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="PRODUTOS"
-                android:textColor="@color/rubye_gold"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:layout_marginEnd="24dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="COLEÇÕES"
-                android:textColor="@color/rubye_gold"
-                android:textSize="12sp"
-                android:layout_marginEnd="24dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SOBRE NÓS"
-                android:textColor="@color/rubye_gold"
-                android:textSize="12sp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Lista de Produtos -->
+    <!-- Lista de Produtos (ocupa o resto da tela) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProdutos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="12dp"
         android:clipToPadding="false" />
+
+    <!-- Navegação Inferior -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/rubye_header"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>

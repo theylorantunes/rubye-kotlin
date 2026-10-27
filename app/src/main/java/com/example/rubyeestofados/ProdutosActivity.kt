@@ -1,6 +1,8 @@
 package com.example.rubyeestofados
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,8 +13,9 @@ class ProdutosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_produtos)
 
-        val rvProdutos = findViewById<RecyclerView>(R.id.rvProdutos)
+        BottomNavHelper.setupBottomNav(this, R.id.nav_produtos)
 
+        val rvProdutos = findViewById<RecyclerView>(R.id.rvProdutos)
 
         val meusProdutos = listOf(
             Produto("Sofá Retro Mission", "R$ 899,00", R.drawable.sofa_renan),

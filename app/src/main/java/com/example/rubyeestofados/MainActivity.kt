@@ -31,9 +31,14 @@ class MainActivity : AppCompatActivity() {
 
 
                 if (email == "admin" && senha == "123") {
+                    // Salva a sessão como logada
+                    val session = SessionManager(this)
+                    session.setLoggedIn(true)
+                    
                     Toast.makeText(this, "Login de Teste Autorizado!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, ProdutosActivity::class.java)
                     startActivity(intent)
+                    finish() // Fecha a tela de login
                 }
 
                 else {
@@ -65,10 +70,14 @@ class MainActivity : AppCompatActivity() {
                     val listaUsuarios = response.body()!!
 
                     if (listaUsuarios.isNotEmpty()) {
+                        // Salva a sessão como logada
+                        val session = SessionManager(this@MainActivity)
+                        session.setLoggedIn(true)
+                        
                         Toast.makeText(this@MainActivity, "Bem-vindo(a)!", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@MainActivity, ProdutosActivity::class.java)
                         startActivity(intent)
-                        finish()
+                        finish() // Fecha a tela de login
                     } else {
                         Toast.makeText(this@MainActivity, "Usuário ou senha incorretos", Toast.LENGTH_SHORT).show()
                     }

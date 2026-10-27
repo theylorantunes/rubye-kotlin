@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/rubye_header"
+    android:orientation="vertical"
+    android:paddingTop="40dp"
+    android:paddingBottom="16dp"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_rubye"
+        android:adjustViewBounds="true"
+        app:tint="@color/rubye_gold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/navProdutos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRODUTOS"
+            android:textColor="@color/rubye_gold"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="16dp"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/navCarrinho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CARRINHO"
+            android:textColor="@color/rubye_gold"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="16dp"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/navConta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MINHA CONTA"
+            android:textColor="@color/rubye_gold"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:padding="8dp"/>
+    </LinearLayout>
+</LinearLayout>

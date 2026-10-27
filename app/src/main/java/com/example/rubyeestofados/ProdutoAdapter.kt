@@ -15,6 +15,7 @@ class ProdutoAdapter(private val listaProdutos: List<Produto>) : RecyclerView.Ad
         val foto: ImageView = itemView.findViewById(R.id.ivFotoProduto)
         val nome: TextView = itemView.findViewById(R.id.tvNomeProduto)
         val preco: TextView = itemView.findViewById(R.id.tvPrecoProduto)
+        val btnAdicionar: View = itemView.findViewById(R.id.btnAdicionar)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdutoViewHolder {
@@ -28,8 +29,8 @@ class ProdutoAdapter(private val listaProdutos: List<Produto>) : RecyclerView.Ad
         holder.preco.text = produto.preco
         holder.foto.setImageResource(produto.imagemResId)
 
-        // Clique no item da lista
-        holder.itemView.setOnClickListener {
+        // Clique no card ou no botão '+' leva para a tela de detalhes
+        val clickListener = View.OnClickListener {
             val context = holder.itemView.context
             val intent = android.content.Intent(context, DetalhesProdutoActivity::class.java).apply {
                 putExtra("NOME_PRODUTO", produto.nome)
@@ -38,6 +39,9 @@ class ProdutoAdapter(private val listaProdutos: List<Produto>) : RecyclerView.Ad
             }
             context.startActivity(intent)
         }
+
+        holder.itemView.setOnClickListener(clickListener)
+        holder.btnAdicionar.setOnClickListener(clickListener)
     }
 
     override fun getItemCount(): Int = listaProdutos.size
