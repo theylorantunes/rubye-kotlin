@@ -16,4 +16,7 @@ interface ApiService {
 
     @POST("cadastro.php")
     suspend fun realizarCadastro(@Body request: CadastroRequest): Response<AuthResponse>
+
+    @GET("produtos.php")
+    suspend fun listarProdutos(): Response<List<ProdutoApi>>
 }
