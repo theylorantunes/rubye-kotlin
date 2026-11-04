@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    // IP real da máquina
+    // ip real da maquina
     private const val BASE_URL = "http://10.158.6.175/api_rubye/"
 
     val apiService: ApiService by lazy {

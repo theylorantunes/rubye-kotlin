@@ -10,12 +10,12 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // Verifica se o usuário já está logado
+        // verifica se o usuario ja esta logado
         val session = SessionManager(this)
         if (session.isLoggedIn()) {
             val intent = Intent(this, ProdutosActivity::class.java)
             startActivity(intent)
-            finish() // Impede de voltar pra tela de welcome
+            finish() // impede de voltar pra tela de welcome
             return
         }
         
@@ -24,13 +24,13 @@ class WelcomeActivity : AppCompatActivity() {
         val btnFazerLogin = findViewById<Button>(R.id.btnFazerLogin)
         val btnCriarConta = findViewById<Button>(R.id.btnCriarConta)
 
-        // Vai para a tela de Login (que atualmente é a MainActivity)
+        // vai para a tela de login (que atualmente e a mainactivity)
         btnFazerLogin.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        // Vai direto para a tela de Cadastro
+        // vai direto para a tela de cadastro
         btnCriarConta.setOnClickListener {
             val intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)

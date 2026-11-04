@@ -9,7 +9,7 @@ object BottomNavHelper {
     fun setupBottomNav(activity: Activity, currentItemId: Int) {
         val bottomNav = activity.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         
-        // Define o item selecionado corretamente para a tela atual
+        // define o item selecionado corretamente para a tela atual
         bottomNav?.selectedItemId = currentItemId
         
         bottomNav?.setOnItemSelectedListener { item ->
