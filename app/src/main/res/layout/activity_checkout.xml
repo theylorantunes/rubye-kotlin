@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rubye_bg_claro"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_rubye"
+            android:adjustViewBounds="true"
+            app:tint="@color/rubye_header"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="@string/app_name"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contato"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_input_checkout"
+            android:hint="E-mail"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="#757575"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrega"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_input_checkout"
+            android:text="Brasil"
+            android:enabled="false"
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:inputType="text"
+            android:autofillHints="addressCountry"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/etNome"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_input_checkout"
+                android:hint="Nome"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="#757575"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:inputType="textPersonName"
+                android:autofillHints="name"
+                android:layout_marginEnd="4dp"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_input_checkout"
+                android:hint="Sobrenome"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="#757575"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:inputType="textPersonName"
+                android:autofillHints="name"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etCep"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_input_checkout"
+            android:hint="CEP"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="#757575"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:inputType="number"
+            android:autofillHints="postalCode"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/etEndereco"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_input_checkout"
+                android:hint="Endereço"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="#757575"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:inputType="textPostalAddress"
+                android:autofillHints="postalAddress"
+                android:layout_marginEnd="4dp"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_input_checkout"
+                android:hint="Número"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="#757575"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:autofillHints="postalAddress"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_input_checkout"
+            android:hint="Apartamento, bloco etc. (opcional)"
+            android:paddingHorizontal="16dp"
+            android:textColorHint="#757575"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:inputType="text"
+            android:autofillHints="postalAddress"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pagamento"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Todas as transações são seguras e criptografadas."
+            android:textColor="#555555"
+            android:textSize="12sp"
+            android:layout_marginBottom="12dp"/>
+
+        <RadioGroup
+            android:id="@+id/rgPagamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rbPix"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text=" PIX com 5% OFF"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@drawable/bg_input_checkout"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"/>
+
+            <LinearLayout
+                android:id="@+id/llPixArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_pix_box"
+                android:padding="16dp"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Escaneie o código abaixo com o app do seu banco ou copie a chave."
+                    android:textColor="#555555"
+                    android:textSize="12sp"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="16dp"/>
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/logo_rubye"
+                    android:background="@color/white"
+                    android:padding="16dp"
+                    app:tint="@color/rubye_header"
+                    android:contentDescription="@string/app_name"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chave PIX (Copia e Cola):"
+                    android:textColor="#555555"
+                    android:textSize="12sp"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="39a0-4b92-rubye-821f"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="16dp"/>
+
+                <Button
+                    android:id="@+id/btnConfirmarPagamentoPix"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/black"
+                    android:text="JÁ FIZ O PAGAMENTO"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="4dp" />
+            </LinearLayout>
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D1D1D1"
+            android:layout_marginVertical="24dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Subtotal"
+                android:textColor="#555555"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$ 0,00"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDescontoArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Desconto PIX (5%)"
+                android:textColor="#555555"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvDesconto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- R$ 0,00"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BRL "
+                android:textColor="#757575"
+                android:textSize="12sp"
+                android:gravity="bottom"/>
+
+            <TextView
+                android:id="@+id/tvTotalFinal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$ 0,00"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
