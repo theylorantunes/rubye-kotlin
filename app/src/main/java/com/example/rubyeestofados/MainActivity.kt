@@ -31,14 +31,14 @@ class MainActivity : AppCompatActivity() {
 
 
                 if (email == "admin" && senha == "123") {
-                    // Salva a sessão como logada
+                    // salva a sessao como logada com dados mockados
                     val session = SessionManager(this)
-                    session.setLoggedIn(true)
+                    session.setLoggedIn(true, "Administrador", "admin@rubye.com.br")
                     
                     Toast.makeText(this, "Login de Teste Autorizado!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, ProdutosActivity::class.java)
                     startActivity(intent)
-                    finish() // Fecha a tela de login
+                    finish() // fecha a tela de login
                 }
 
                 else {
@@ -70,14 +70,16 @@ class MainActivity : AppCompatActivity() {
                     val listaUsuarios = response.body()!!
 
                     if (listaUsuarios.isNotEmpty()) {
-                        // Salva a sessão como logada
+                        val usuarioLogado = listaUsuarios[0] // pega o primeiro usuario retornado
+
+                        // salva a sessao com os dados reais do banco
                         val session = SessionManager(this@MainActivity)
-                        session.setLoggedIn(true)
+                        session.setLoggedIn(true, usuarioLogado.usuarioNome, usuarioLogado.usuarioEmail)
                         
-                        Toast.makeText(this@MainActivity, "Bem-vindo(a)!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity, "Bem-vindo(a) ${usuarioLogado.usuarioNome}!", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@MainActivity, ProdutosActivity::class.java)
                         startActivity(intent)
-                        finish() // Fecha a tela de login
+                        finish() // fecha a tela de login
                     } else {
                         Toast.makeText(this@MainActivity, "Usuário ou senha incorretos", Toast.LENGTH_SHORT).show()
                     }

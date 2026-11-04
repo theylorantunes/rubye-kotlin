@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rubye_bg_claro"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo_rubye"
+        app:tint="@color/rubye_gold"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Logotipo Rubye"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pedido Confirmado!"
+        android:textColor="@color/rubye_header"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Obrigado por comprar com a Rubye Estofados.\nSeu pedido foi registrado e entraremos em contato em breve."
+        android:textColor="@color/rubye_fonte_escura"
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:textAlignment="center"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/btnVoltarCatalogo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/rubye_header"
+        android:text="VOLTAR AO CATÁLOGO"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="8dp" />
+
+</LinearLayout>
