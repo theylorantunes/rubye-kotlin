@@ -38,7 +38,11 @@ class DetalhesProdutoActivity : AppCompatActivity() {
         }
 
         btnComprar.setOnClickListener {
+            val produto = Produto(nome, preco, imagemResId)
+            CartManager.adicionarProduto(produto)
             Toast.makeText(this, "Produto adicionado ao carrinho!", Toast.LENGTH_SHORT).show()
+            // volta pro catalogo ou deixa continuar navegando (opcional fechar a tela com finish())
+            finish()
         }
     }
 }

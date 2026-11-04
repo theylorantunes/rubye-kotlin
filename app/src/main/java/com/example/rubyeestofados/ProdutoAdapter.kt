@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 data class Produto(val nome: String, val preco: String, val imagemResId: Int)
@@ -29,8 +30,8 @@ class ProdutoAdapter(private val listaProdutos: List<Produto>) : RecyclerView.Ad
         holder.preco.text = produto.preco
         holder.foto.setImageResource(produto.imagemResId)
 
-        // Clique no card ou no botão '+' leva para a tela de detalhes
-        val clickListener = View.OnClickListener {
+        // clique no card leva para a tela de detalhes
+        holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = android.content.Intent(context, DetalhesProdutoActivity::class.java).apply {
                 putExtra("NOME_PRODUTO", produto.nome)
@@ -40,8 +41,11 @@ class ProdutoAdapter(private val listaProdutos: List<Produto>) : RecyclerView.Ad
             context.startActivity(intent)
         }
 
-        holder.itemView.setOnClickListener(clickListener)
-        holder.btnAdicionar.setOnClickListener(clickListener)
+        // clique no botao '+' agora joga direto pro carrinho!
+        holder.btnAdicionar.setOnClickListener {
+            CartManager.adicionarProduto(produto)
+            Toast.makeText(holder.itemView.context, "${produto.nome} adicionado!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int = listaProdutos.size
