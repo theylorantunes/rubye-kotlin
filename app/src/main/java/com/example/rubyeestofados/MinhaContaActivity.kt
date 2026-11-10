@@ -28,7 +28,8 @@ class MinhaContaActivity : AppCompatActivity() {
         tvEmailUsuario.text = session.getUserEmail()
 
         btnMeusPedidos.setOnClickListener {
-            Toast.makeText(this, "Em breve: Seus pedidos!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MeusPedidosActivity::class.java)
+            startActivity(intent)
         }
 
         btnEditarPerfil.setOnClickListener {
