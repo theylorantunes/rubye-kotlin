@@ -32,6 +32,10 @@
         <activity android:name=".MinhaContaActivity" />
         <activity android:name=".PedidoSucessoActivity" />
         <activity android:name=".CheckoutActivity" />
+        <activity android:name=".PersonalizadoActivity" />
+        <activity android:name=".LeilaoActivity" />
+        <activity android:name=".MeusPedidosActivity" />
+        <activity android:name=".DetalhesPedidoActivity" />
     </application>
 
 </manifest>

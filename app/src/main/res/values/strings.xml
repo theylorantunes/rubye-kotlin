@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">RubyeEstofados</string>
+    <string name="estofado_personalizado">Estofado Personalizado</string>
+    <string name="desc_personalizado">Monte o sofá dos seus sonhos escolhendo cada detalhe abaixo.</string>
+    <string name="tamanho">Tamanho</string>
+    <string name="estilo">Estilo</string>
+    <string name="material_tecido">Material do Tecido</string>
+    <string name="madeira_base">Madeira (Base)</string>
+    <string name="detalhes_adicionais">Detalhes Adicionais</string>
+    <string name="hint_detalhes">Ex: Quero as almofadas mais macias, pés com 15cm...</string>
+    <string name="solicitar_orcamento">SOLICITAR ORÇAMENTO</string>
+    <string name="voltar_catalogo">Voltar ao Catálogo</string>
+    <string name="leiloes_ativos">Leilões Ativos</string>
+    <string name="desc_leiloes">Sofás customizados exclusivos criados pela comunidade. Dê seu lance!</string>
+    <string name="lance_atual">Lance Atual:</string>
+    <string name="tempo_restante">Tempo Restante:</string>
+    <string name="dar_lance">DAR LANCE</string>
+    <string name="meus_pedidos">Meus Pedidos</string>
+    <string name="acompanhe_compras">Acompanhe o status das suas compras.</string>
+    <string name="ver_detalhes">VER DETALHES</string>
+    <string name="voltar_aos_pedidos">&lt; VOLTAR AOS PEDIDOS</string>
+    <string name="itens_do_pedido">Itens do Pedido</string>
+    <string name="endereco_entrega">Endereço de Entrega</string>
 </resources>

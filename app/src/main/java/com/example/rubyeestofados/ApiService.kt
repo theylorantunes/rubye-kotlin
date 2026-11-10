@@ -19,4 +19,13 @@ interface ApiService {
 
     @GET("produtos.php")
     suspend fun listarProdutos(): Response<List<ProdutoApi>>
+
+    @POST("pedidos.php")
+    suspend fun enviarPedido(@Body pedido: PedidoRequest): Response<DefaultResponse>
+
+    @GET("listar_meus_pedidos.php")
+    suspend fun listarMeusPedidos(@Query("email") email: String): Response<List<PedidosResponse>>
+
+    @GET("listar_itens_pedido.php")
+    suspend fun listarItensPedido(@Query("pedido_id") pedidoId: String): Response<List<ItensPedidoResponse>>
 }

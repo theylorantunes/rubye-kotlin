@@ -30,6 +30,22 @@ object BottomNavHelper {
                     }
                     true
                 }
+                R.id.nav_personalizado -> {
+                    if (currentItemId != R.id.nav_personalizado) {
+                        val intent = Intent(activity, PersonalizadoActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        activity.startActivity(intent)
+                    }
+                    true
+                }
+                R.id.nav_leilao -> {
+                    if (currentItemId != R.id.nav_leilao) {
+                        val intent = Intent(activity, LeilaoActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                        activity.startActivity(intent)
+                    }
+                    true
+                }
                 R.id.nav_conta -> {
                     if (currentItemId != R.id.nav_conta) {
                         val intent = Intent(activity, MinhaContaActivity::class.java)

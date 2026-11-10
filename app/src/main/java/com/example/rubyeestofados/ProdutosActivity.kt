@@ -1,5 +1,6 @@
 package com.example.rubyeestofados
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -105,6 +106,20 @@ class ProdutosActivity : AppCompatActivity() {
             resetarBotoes()
             ativarBotao(btnFiltroPremium)
             filtrarCatalogo(etBusca.text.toString(), filtroAtual)
+        }
+
+        // Botoes das novas seções (Personalizado e Leilao)
+        val btnMenuPersonalizado = findViewById<Button>(R.id.btnMenuPersonalizado)
+        val btnMenuLeilao = findViewById<Button>(R.id.btnMenuLeilao)
+
+        btnMenuPersonalizado.setOnClickListener {
+            val intent = Intent(this, PersonalizadoActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnMenuLeilao.setOnClickListener {
+            val intent = Intent(this, LeilaoActivity::class.java)
+            startActivity(intent)
         }
     }
 
