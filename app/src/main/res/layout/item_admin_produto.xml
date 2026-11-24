@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:layout_marginHorizontal="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#E0E0E0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <!-- Imagem com Borda Arredondada Perfeita -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+            <ImageView
+                android:id="@+id/ivAdminProdFoto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@color/rubye_light_gray"
+                android:contentDescription="Foto Produto"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Textos -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:id="@+id/tvAdminProdNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome do Produto"
+                android:textColor="@color/rubye_fonte_escura"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/tvAdminProdPreco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$ 0,00"
+                android:textColor="@color/rubye_gold"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Ações do Lojista (Status + Edit) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <!-- Switch de "Soft Delete" / Ativação -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchAtivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:theme="@style/Widget.AppCompat.CompoundButton.Switch"
+                android:layout_marginBottom="8dp"/>
+
+            <ImageView
+                android:id="@+id/btnAdminEdit"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@android:drawable/ic_menu_edit"
+                app:tint="@color/rubye_header"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="6dp"
+                android:contentDescription="Editar Produto"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

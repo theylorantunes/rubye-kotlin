@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rubye_bg_claro"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/rubye_header"
+        app:elevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/btnVoltarNovoProd"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_back"
+                app:tint="@color/white"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/app_name"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Novo Produto"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Imagens do Produto"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:id="@+id/llAddFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="@drawable/bg_input_checkout"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@android:drawable/ic_menu_camera"
+                        app:tint="@color/rubye_header"
+                        android:layout_marginBottom="8dp"
+                        android:contentDescription="@string/app_name"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Adicionar link de imagem (Max: 5)"
+                        android:textColor="#555555"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llListaFotos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Links injetados aqui -->
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome do Sofá"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/etNovoProdNome"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input_checkout"
+                android:hint="Ex: Sofá Chesterfield 3 Lugares"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="#757575"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:inputType="textCapWords"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preço de Venda (R$)"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/etNovoProdPreco"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input_checkout"
+                android:hint="Ex: 1250,00"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="#757575"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descrição Completa"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/etNovoProdDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/bg_input_checkout"
+                android:hint="Material, medidas e características..."
+                android:padding="12dp"
+                android:gravity="top|start"
+                android:textColorHint="#757575"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:inputType="textMultiLine"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Materiais e Tags de Busca"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/etNovoProdTags"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input_checkout"
+                android:hint="Ex: Couro, Retrátil, Madeira Maciça"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="#757575"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Característica de Destaque (Premium)"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/etNovoProdDestaque"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input_checkout"
+                android:hint="Ex: Assento com Molas Ensacadas"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="#757575"
+                android:textColor="@color/rubye_gold"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:layout_marginBottom="24dp"/>
+
+            <Button
+                android:id="@+id/btnSalvarProduto"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/rubye_gold"
+                android:text="SALVAR NO CATÁLOGO"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="40dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
