@@ -8,6 +8,6 @@ data class LoginResponse(
     val usuarioId: Int,
     val usuarioNome: String,
     val usuarioEmail: String,
-    val usuarioSenha: String?,
-    val usuarioCpf: String?
+    val usuarioCpf: String?,
+    val isAdmin: Int? // 1 para Admin, 0 ou null para cliente normal
 )

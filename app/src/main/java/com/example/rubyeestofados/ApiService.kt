@@ -28,4 +28,7 @@ interface ApiService {
 
     @GET("listar_itens_pedido.php")
     suspend fun listarItensPedido(@Query("pedido_id") pedidoId: String): Response<List<ItensPedidoResponse>>
+
+    @POST("admin_criar_produto.php")
+    suspend fun criarProduto(@Body produto: ProdutoRequest): Response<ProdutoResponse>
 }

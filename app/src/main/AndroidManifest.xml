@@ -36,6 +36,11 @@
         <activity android:name=".LeilaoActivity" />
         <activity android:name=".MeusPedidosActivity" />
         <activity android:name=".DetalhesPedidoActivity" />
+        <activity android:name=".AdminDashboardActivity" />
+        <activity android:name=".AdminProdutosActivity" />
+        <activity android:name=".AdminNovoProdutoActivity" />
+        <activity android:name=".AdminPedidosActivity" />
+        <activity android:name=".AdminLeiloesActivity" />
     </application>
 
 </manifest>

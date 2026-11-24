@@ -21,4 +21,6 @@
     <string name="voltar_aos_pedidos">&lt; VOLTAR AOS PEDIDOS</string>
     <string name="itens_do_pedido">Itens do Pedido</string>
     <string name="endereco_entrega">Endereço de Entrega</string>
+    <string name="gerenciar_catalogo">Gerenciar Catálogo</string>
+    <string name="desc_admin_catalogo">Edite, adicione ou remova produtos do catálogo do aplicativo em tempo real.</string>
 </resources>
