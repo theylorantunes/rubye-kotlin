@@ -7,8 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
-data class Produto(val nome: String, val preco: String, val imagemResId: Int)
+data class Produto(val nome: String, val preco: String, val imagemResId: Int, val imagemUrl: String? = null, var ativo: Boolean = true)
 
 class ProdutoAdapter(private val listaProdutos: List<Produto>) : RecyclerView.Adapter<ProdutoAdapter.ProdutoViewHolder>() {
 
@@ -28,7 +29,16 @@ class ProdutoAdapter(private val listaProdutos: List<Produto>) : RecyclerView.Ad
         val produto = listaProdutos[position]
         holder.nome.text = produto.nome
         holder.preco.text = produto.preco
-        holder.foto.setImageResource(produto.imagemResId)
+
+        // se tiver url usa o glide pra baixar da web, senao usa a imagem local
+        if (!produto.imagemUrl.isNullOrEmpty() && produto.imagemUrl.startsWith("http")) {
+            Glide.with(holder.itemView.context)
+                .load(produto.imagemUrl)
+                .placeholder(R.drawable.sofa_l)
+                .into(holder.foto)
+        } else {
+            holder.foto.setImageResource(produto.imagemResId)
+        }
 
         // clique no card leva para a tela de detalhes
         holder.itemView.setOnClickListener {
@@ -37,6 +47,7 @@ class ProdutoAdapter(private val listaProdutos: List<Produto>) : RecyclerView.Ad
                 putExtra("NOME_PRODUTO", produto.nome)
                 putExtra("PRECO_PRODUTO", produto.preco)
                 putExtra("IMAGEM_PRODUTO", produto.imagemResId)
+                putExtra("IMAGEM_URL_PRODUTO", produto.imagemUrl)
             }
             context.startActivity(intent)
         }

@@ -1,5 +1,6 @@
 package com.example.rubyeestofados
 
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,11 +45,27 @@ class LeilaoAdapter(private val listaLeiloes: List<ItemLeilao>) : RecyclerView.A
         val format = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR"))
         holder.lanceAtual.text = format.format(item.lanceAtual)
         
+        // Mostrando ultimo autor se existir (Mock do CSFloat)
+        val ultimosLances = listOf("Fallen_BR", "Coldzera22", "Gaules_Tribe", "FerGod", "Anonimo_89")
+        
         holder.btnDarLance.setOnClickListener {
-            // Simulando um lance + 50 reais
-            item.lanceAtual += 50.0
-            holder.lanceAtual.text = format.format(item.lanceAtual)
-            Toast.makeText(holder.itemView.context, "Lance coberto! Você está ganhando.", Toast.LENGTH_SHORT).show()
+            // Simulando um pop-up de Retenção de Saldo (Como em Leilões reais)
+            AlertDialog.Builder(holder.itemView.context)
+                .setTitle("Confirmar Lance")
+                .setMessage("Deseja cobrir o lance com + R$ 50,00?\n\nIsso fará uma pré-autorização no seu cartão para garantir a legitimidade da oferta.")
+                .setPositiveButton("CONFIRMAR") { _, _ ->
+                    item.lanceAtual += 50.0
+                    holder.lanceAtual.text = format.format(item.lanceAtual)
+                    
+                    // Pisca o item pra mostrar que mudou
+                    holder.lanceAtual.alpha = 0.5f
+                    holder.lanceAtual.animate().alpha(1.0f).setDuration(300).start()
+                    
+                    val autorSorteado = ultimosLances.random()
+                    Toast.makeText(holder.itemView.context, "Lance coberto! Você está ganhando de $autorSorteado.", Toast.LENGTH_LONG).show()
+                }
+                .setNegativeButton("CANCELAR", null)
+                .show()
         }
     }
 

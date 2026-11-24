@@ -16,12 +16,30 @@
             android:layout_height="wrap_content">
 
             <!-- Imagem de topo enorme -->
-            <ImageView
-                android:id="@+id/ivFotoDetalhe"
+            <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vpFotosDetalhe"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:scaleType="centerCrop"
+                android:layout_height="match_parent"
                 android:background="@color/rubye_light_gray" />
+
+            <TextView
+                android:id="@+id/tvContadorFotos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:background="#88000000"
+                android:textColor="@color/white"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="1/1" />
+        </FrameLayout>
 
             <!-- Container das informações de texto -->
             <LinearLayout
@@ -76,6 +94,29 @@
                     android:textColor="#666666"
                     android:textSize="15sp"
                     android:lineSpacingExtra="6dp" />
+
+                <!-- Linha divisória antes das avaliações -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/rubye_sand"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="24dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Avaliações"
+                    android:textColor="@color/rubye_fonte_escura"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAvaliacoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
 
             </LinearLayout>
         </RelativeLayout>

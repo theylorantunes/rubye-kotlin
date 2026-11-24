@@ -42,15 +42,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lance_atual"
-                android:textSize="12sp"
-                android:textColor="#757575"/>
+                android:text="LANCE ATUAL"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="#9E9E9E"/>
             <TextView
                 android:id="@+id/tvLanceAtual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="R$ 1.500,00"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:textColor="@color/rubye_gold"/>
         </LinearLayout>
@@ -64,17 +65,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tempo_restante"
-                android:textSize="12sp"
-                android:textColor="#757575"/>
+                android:text="TEMPO RESTANTE"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="#9E9E9E"/>
             <TextView
                 android:id="@+id/tvTempoRestante"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00:00:00"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#D32F2F"/>
+                android:textColor="#D32F2F"
+                android:background="#FFEBEE"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"/>
         </LinearLayout>
     </LinearLayout>
 

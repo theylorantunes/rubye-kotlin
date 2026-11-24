@@ -1,5 +1,6 @@
 package com.example.rubyeestofados
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -118,35 +119,46 @@ class CheckoutActivity : AppCompatActivity() {
                 )
             }
 
-            val pedido = PedidoRequest(
-                usuarioEmail = email,
-                nome = nome,
-                cep = cep,
-                endereco = endereco,
-                total = totalComDescontoAtual,
-                formaPagamento = "PIX",
-                itens = itensRequest
-            )
+            // Exibir resumo do que será cobrado no cartão/pix antes de disparar o pedido real
+            AlertDialog.Builder(this)
+                .setTitle("Confirmar Compra")
+                .setMessage("Finalizar pedido no valor de ${format.format(totalComDescontoAtual)} ?")
+                .setPositiveButton("SIM, PAGAR") { _, _ ->
+                    val pedido = PedidoRequest(
+                        usuarioEmail = email,
+                        nome = nome,
+                        cep = cep,
+                        endereco = endereco,
+                        total = totalComDescontoAtual,
+                        formaPagamento = "PIX",
+                        itens = itensRequest
+                    )
 
-            lifecycleScope.launch {
-                try {
-                    val response = RetrofitClient.apiService.enviarPedido(pedido)
-                    if (response.isSuccessful && response.body()?.sucesso == true) {
-                        CartManager.limparCarrinho()
-                        val intent = Intent(this@CheckoutActivity, PedidoSucessoActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        Toast.makeText(this@CheckoutActivity, "Erro ao registrar pedido: ${response.body()?.mensagem}", Toast.LENGTH_LONG).show()
-                        btnConfirmarPagamentoPix.isEnabled = true
-                        btnConfirmarPagamentoPix.text = "JÁ FIZ O PAGAMENTO"
+                    lifecycleScope.launch {
+                        try {
+                            val response = RetrofitClient.apiService.enviarPedido(pedido)
+                            if (response.isSuccessful && response.body()?.sucesso == true) {
+                                CartManager.limparCarrinho()
+                                val intent = Intent(this@CheckoutActivity, PedidoSucessoActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                Toast.makeText(this@CheckoutActivity, "Erro ao registrar pedido: ${response.body()?.mensagem}", Toast.LENGTH_LONG).show()
+                                btnConfirmarPagamentoPix.isEnabled = true
+                                btnConfirmarPagamentoPix.text = "JÁ FIZ O PAGAMENTO"
+                            }
+                        } catch (e: Exception) {
+                            Toast.makeText(this@CheckoutActivity, "Falha de conexão com a API", Toast.LENGTH_SHORT).show()
+                            btnConfirmarPagamentoPix.isEnabled = true
+                            btnConfirmarPagamentoPix.text = "JÁ FIZ O PAGAMENTO"
+                        }
                     }
-                } catch (e: Exception) {
-                    Toast.makeText(this@CheckoutActivity, "Falha de conexão com a API", Toast.LENGTH_SHORT).show()
+                }
+                .setNegativeButton("CANCELAR") { _, _ ->
                     btnConfirmarPagamentoPix.isEnabled = true
                     btnConfirmarPagamentoPix.text = "JÁ FIZ O PAGAMENTO"
                 }
-            }
+                .show()
         }
     }
 }

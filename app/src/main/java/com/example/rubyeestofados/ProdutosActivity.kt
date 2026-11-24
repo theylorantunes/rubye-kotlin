@@ -41,15 +41,24 @@ class ProdutosActivity : AppCompatActivity() {
                 val listaApi: List<ProdutoApi> = response.body().orEmpty()
                 
                 listaCompleta = listaApi.map { produtoApi ->
-                    // transforma o nome da imagem que vem do banco em um id de recurso do android
-                    val resId = resources.getIdentifier(produtoApi.imagem ?: "", "drawable", packageName)
-                    // se nao encontrar a imagem, usa o sofa_l por padrao para nao quebrar
+                    // se a imagem começar com http, preparamos para o Glide!
+                    val imagemDoBanco = produtoApi.imagem ?: ""
+                    var resId = 0
+                    var url: String? = null
+                    
+                    if (imagemDoBanco.startsWith("http")) {
+                        url = imagemDoBanco
+                    } else {
+                        resId = resources.getIdentifier(imagemDoBanco, "drawable", packageName)
+                    }
+                    
                     val imagemCorreta = if (resId != 0) resId else R.drawable.sofa_l
 
                     Produto(
                         nome = produtoApi.nome,
                         preco = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("pt-BR")).format(produtoApi.preco),
-                        imagemResId = imagemCorreta
+                        imagemResId = imagemCorreta,
+                        imagemUrl = url
                     )
                 }
 
