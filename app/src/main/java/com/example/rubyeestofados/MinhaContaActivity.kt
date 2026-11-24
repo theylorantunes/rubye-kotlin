@@ -27,13 +27,22 @@ class MinhaContaActivity : AppCompatActivity() {
         tvNomeUsuario.text = session.getUserNome()
         tvEmailUsuario.text = session.getUserEmail()
 
+        // Se o usuario for Administrador, o botão Editar Perfil vira Painel Admin!
+        if (session.isAdmin()) {
+            btnEditarPerfil.text = "👑 Painel Administrativo"
+            btnEditarPerfil.setOnClickListener {
+                val intent = Intent(this, AdminDashboardActivity::class.java)
+                startActivity(intent)
+            }
+        } else {
+            btnEditarPerfil.setOnClickListener {
+                Toast.makeText(this, "Em breve: Edição de perfil!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         btnMeusPedidos.setOnClickListener {
             val intent = Intent(this, MeusPedidosActivity::class.java)
             startActivity(intent)
-        }
-
-        btnEditarPerfil.setOnClickListener {
-            Toast.makeText(this, "Em breve: Edição de perfil!", Toast.LENGTH_SHORT).show()
         }
 
         btnSair.setOnClickListener {

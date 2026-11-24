@@ -38,12 +38,34 @@ class DetalhesPedidoActivity : AppCompatActivity() {
             tvEndereco.text = pedido.endereco
             tvTotal.text = "Total: ${format.format(pedido.total)}"
 
-            if (pedido.status.uppercase() == "ENTREGUE") {
-                tvStatus.setTextColor(Color.parseColor("#388E3C"))
-                tvStatus.setBackgroundColor(Color.parseColor("#E8F5E9"))
-            } else {
-                tvStatus.setTextColor(Color.parseColor("#F57C00"))
-                tvStatus.setBackgroundColor(Color.parseColor("#FFF3E0"))
+            val statusAtual = pedido.status.uppercase()
+            tvStatus.text = "STATUS: $statusAtual"
+
+            when (statusAtual) {
+                "PAGAMENTO APROVADO" -> {
+                    tvStatus.setTextColor(Color.parseColor("#1565C0"))
+                    tvStatus.setBackgroundColor(Color.parseColor("#E3F2FD"))
+                }
+                "EM PRODUÇÃO" -> {
+                    tvStatus.setTextColor(Color.parseColor("#E65100"))
+                    tvStatus.setBackgroundColor(Color.parseColor("#FFF3E0"))
+                }
+                "PRONTO PARA ENVIO" -> {
+                    tvStatus.setTextColor(Color.parseColor("#00695C"))
+                    tvStatus.setBackgroundColor(Color.parseColor("#E0F2F1"))
+                }
+                "ENVIADO" -> {
+                    tvStatus.setTextColor(Color.parseColor("#0277BD"))
+                    tvStatus.setBackgroundColor(Color.parseColor("#E1F5FE"))
+                }
+                "ENTREGUE" -> {
+                    tvStatus.setTextColor(Color.parseColor("#2E7D32"))
+                    tvStatus.setBackgroundColor(Color.parseColor("#E8F5E9"))
+                }
+                else -> {
+                    tvStatus.setTextColor(Color.parseColor("#757575"))
+                    tvStatus.setBackgroundColor(Color.parseColor("#F5F5F5"))
+                }
             }
 
             // Injeta os itens do pedido visualmente

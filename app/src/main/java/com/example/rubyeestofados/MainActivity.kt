@@ -72,9 +72,12 @@ class MainActivity : AppCompatActivity() {
                     if (listaUsuarios.isNotEmpty()) {
                         val usuarioLogado = listaUsuarios[0] // pega o primeiro usuario retornado
 
+                        // checa se o usuario é admin (1) ou comum (null/0)
+                        val isAdmin = usuarioLogado.isAdmin == 1
+
                         // salva a sessao com os dados reais do banco
                         val session = SessionManager(this@MainActivity)
-                        session.setLoggedIn(true, usuarioLogado.usuarioNome, usuarioLogado.usuarioEmail)
+                        session.setLoggedIn(true, usuarioLogado.usuarioNome, usuarioLogado.usuarioEmail, isAdmin)
                         
                         Toast.makeText(this@MainActivity, "Bem-vindo(a) ${usuarioLogado.usuarioNome}!", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this@MainActivity, ProdutosActivity::class.java)

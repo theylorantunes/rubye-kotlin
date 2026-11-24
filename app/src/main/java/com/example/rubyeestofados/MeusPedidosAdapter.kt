@@ -33,15 +33,35 @@ class MeusPedidosAdapter(private val pedidos: List<MeuPedido>) : RecyclerView.Ad
         holder.tvNum.text = "Pedido #${pedido.id}"
         holder.tvData.text = "Realizado em ${pedido.data}"
         holder.tvTotal.text = "Total: ${format.format(pedido.total)}"
-        holder.tvStatus.text = pedido.status
+        val statusAtual = pedido.status.uppercase()
+        holder.tvStatus.text = statusAtual
 
-        if (pedido.status.uppercase() == "ENTREGUE") {
-            holder.tvStatus.setTextColor(Color.parseColor("#388E3C"))
-            holder.tvStatus.setBackgroundColor(Color.parseColor("#E8F5E9"))
-        } else {
-            // "PROCESSANDO" ou "A CAMINHO"
-            holder.tvStatus.setTextColor(Color.parseColor("#F57C00"))
-            holder.tvStatus.setBackgroundColor(Color.parseColor("#FFF3E0"))
+        // Configuração de cores detalhadas (Espelho do Admin)
+        when (statusAtual) {
+            "PAGAMENTO APROVADO" -> {
+                holder.tvStatus.setTextColor(Color.parseColor("#1565C0")) 
+                holder.tvStatus.setBackgroundColor(Color.parseColor("#E3F2FD"))
+            }
+            "EM PRODUÇÃO" -> {
+                holder.tvStatus.setTextColor(Color.parseColor("#E65100")) 
+                holder.tvStatus.setBackgroundColor(Color.parseColor("#FFF3E0"))
+            }
+            "PRONTO PARA ENVIO" -> {
+                holder.tvStatus.setTextColor(Color.parseColor("#00695C")) 
+                holder.tvStatus.setBackgroundColor(Color.parseColor("#E0F2F1"))
+            }
+            "ENVIADO" -> {
+                holder.tvStatus.setTextColor(Color.parseColor("#0277BD")) 
+                holder.tvStatus.setBackgroundColor(Color.parseColor("#E1F5FE"))
+            }
+            "ENTREGUE" -> {
+                holder.tvStatus.setTextColor(Color.parseColor("#2E7D32")) 
+                holder.tvStatus.setBackgroundColor(Color.parseColor("#E8F5E9"))
+            }
+            else -> {
+                holder.tvStatus.setTextColor(Color.parseColor("#757575"))
+                holder.tvStatus.setBackgroundColor(Color.parseColor("#F5F5F5"))
+            }
         }
 
         holder.btnDetalhes.setOnClickListener {
