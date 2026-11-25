@@ -23,4 +23,6 @@
     <string name="endereco_entrega">Endereço de Entrega</string>
     <string name="gerenciar_catalogo">Gerenciar Catálogo</string>
     <string name="desc_admin_catalogo">Edite, adicione ou remova produtos do catálogo do aplicativo em tempo real.</string>
+    <string name="url_scheme">rubyeapp</string>
+    <string name="url_host">sucesso</string>
 </resources>

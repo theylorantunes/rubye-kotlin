@@ -31,4 +31,10 @@ interface ApiService {
 
     @POST("admin_criar_produto.php")
     suspend fun criarProduto(@Body produto: ProdutoRequest): Response<ProdutoResponse>
+
+    @POST("criar_intencao_pagamento.php")
+    suspend fun criarIntencaoPagamento(@Body pedido: PedidoRequest): Response<com.example.rubyeestofados.payment.IntencaoPagamentoResponse>
+
+    @GET("verificar_status_pagamento.php")
+    suspend fun verificarStatusPagamento(@Query("pedido_id") pedidoId: String): Response<com.example.rubyeestofados.payment.StatusPagamentoResponse>
 }

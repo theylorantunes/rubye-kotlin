@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient {
 
     // ip real da maquina onde o XAMPP tá rodando
-    private const val BASE_URL = "http://10.158.6.175/api_rubye/"
+    private const val BASE_URL = "http://192.168.1.12/api_rubye/"
 
     val apiService: ApiService by lazy {
         Retrofit.Builder()

@@ -41,6 +41,22 @@
         <activity android:name=".AdminNovoProdutoActivity" />
         <activity android:name=".AdminPedidosActivity" />
         <activity android:name=".AdminLeiloesActivity" />
+        <activity android:name=".payment.PagamentoActivity" android:exported="true" android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="rubyeapp" android:host="sucesso" />
+            </intent-filter>
+            <intent-filter android:autoVerify="false">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="www.thyagoquintas.com.br"
+                    android:pathPrefix="/api_rubye/sucesso_return.php" />
+            </intent-filter>
+        </activity>
     </application>
-
 </manifest>

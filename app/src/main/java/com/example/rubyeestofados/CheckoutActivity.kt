@@ -136,10 +136,15 @@ class CheckoutActivity : AppCompatActivity() {
 
                     lifecycleScope.launch {
                         try {
-                            val response = RetrofitClient.apiService.enviarPedido(pedido)
+                            val response = RetrofitClient.apiService.criarIntencaoPagamento(pedido)
                             if (response.isSuccessful && response.body()?.sucesso == true) {
                                 CartManager.limparCarrinho()
-                                val intent = Intent(this@CheckoutActivity, PedidoSucessoActivity::class.java)
+                                
+                                val resBody = response.body()!!
+                                val intent = Intent(this@CheckoutActivity, com.example.rubyeestofados.payment.PagamentoActivity::class.java)
+                                intent.putExtra("qrCodeBase64", resBody.qrCodeBase64)
+                                intent.putExtra("copiaCola", resBody.copiaCola)
+                                intent.putExtra("idPedido", resBody.idPedido)
                                 startActivity(intent)
                                 finish()
                             } else {
